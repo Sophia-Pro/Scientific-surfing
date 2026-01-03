@@ -1,39 +1,52 @@
-# >>> 核心对局加速列表 (包含 PUBG, CS2, 战地, GTA5) <<<
-
-# --- [PUBG 核心对局 - 微软 Azure 网段补充] ---
-# 包含您截图中的 20.41.122.247 和 20.196.147.217
-IP-CIDR,20.33.0.0/16,no-resolve
-IP-CIDR,20.41.0.0/16,no-resolve
-IP-CIDR,20.196.0.0/16,no-resolve
-IP-CIDR,54.144.0.0/12,no-resolve
-IP-CIDR,13.112.0.0/14,no-resolve
-IP-CIDR,18.176.0.0/14,no-resolve
-IP-CIDR,35.190.0.0/17,no-resolve
-IP-CIDR,43.249.0.0/16,no-resolve
+# >>> 1. 游戏关键词与官网域名 (捕获所有关联网站、登录器) <<<
 DOMAIN-KEYWORD,pubg
-DOMAIN-SUFFIX,playbattlegrounds.com
+DOMAIN-KEYWORD,tslgame
+DOMAIN-KEYWORD,playbattlegrounds
+DOMAIN-KEYWORD,battlefield
+DOMAIN-KEYWORD,rockstar
+DOMAIN-KEYWORD,socialclub
+DOMAIN-KEYWORD,riotgames
+DOMAIN-KEYWORD,valorant
+DOMAIN-KEYWORD,apexlegends
 
-# --- [CS2 / CS:GO 官方对局服务器] ---
+# 核心后缀
+DOMAIN-SUFFIX,playbattlegrounds.com
+DOMAIN-SUFFIX,battlegrounds.pubg.com
+DOMAIN-SUFFIX,ea.com
+DOMAIN-SUFFIX,dice.se
+DOMAIN-SUFFIX,battlefield.com
+DOMAIN-SUFFIX,rockstargames.com
+DOMAIN-SUFFIX,rsg.sc
+DOMAIN-SUFFIX,perfectworld.com.cn
+DOMAIN-SUFFIX,csgo.com.cn
+DOMAIN-SUFFIX,origin.com
+DOMAIN-SUFFIX,ubisoft.com
+DOMAIN-SUFFIX,uplay.com
+
+# >>> 2. 微软 Azure 核心大网段 (解决你截图里 20.x, 4.x, 13.x 乱跳的对局 IP) <<<
+IP-CIDR,20.0.0.0/8,no-resolve
+IP-CIDR,4.0.0.0/8,no-resolve
+IP-CIDR,13.0.0.0/8,no-resolve
+IP-CIDR,40.0.0.0/8,no-resolve
+IP-CIDR,52.0.0.0/8,no-resolve
+IP-CIDR,104.40.0.0/13,no-resolve
+
+# >>> 3. 亚马逊 AWS 核心大网段 (覆盖大量对局服务器) <<<
+IP-CIDR,54.0.0.0/8,no-resolve
+IP-CIDR,3.0.0.0/8,no-resolve
+IP-CIDR,18.0.0.0/8,no-resolve
+IP-CIDR,44.0.0.0/8,no-resolve
+IP-CIDR,99.0.0.0/8,no-resolve
+
+# >>> 4. Valve/Steam 官方及其他对局服务器 <<<
 IP-CIDR,155.133.224.0/19,no-resolve
 IP-CIDR,162.254.192.0/21,no-resolve
 IP-CIDR,185.25.180.0/23,no-resolve
 IP-CIDR,205.185.194.0/24,no-resolve
-DOMAIN-SUFFIX,perfectworld.com.cn
+IP-CIDR,34.0.0.0/8,no-resolve
+IP-CIDR,35.0.0.0/8,no-resolve
 
-# --- [战地系列 / Battlefield / EA 对局] ---
-IP-CIDR,159.153.0.0/16,no-resolve
-IP-CIDR,159.203.0.0/16,no-resolve
-IP-CIDR,185.179.200.0/22,no-resolve
-DOMAIN-SUFFIX,ea.com
-DOMAIN-SUFFIX,battlefield.com
-
-# --- [GTA5 / GTA Online P2P 协调] ---
-IP-CIDR,192.81.240.0/21,no-resolve
-IP-CIDR,185.56.64.0/22,no-resolve
-IP-CIDR,104.255.104.0/21,no-resolve
-DOMAIN-SUFFIX,rockstargames.com
-
-# --- [流量屏蔽项 - 防止自动更新偷跑] ---
+# >>> 5. 屏蔽项 (强烈建议：防止游戏更新吃掉你的机场流量) <<<
 DOMAIN-SUFFIX,steamcontent.com,REJECT
 DOMAIN-SUFFIX,steampowered.com.8686c.com,REJECT
 DOMAIN-SUFFIX,origin-a.akamaihd.net,REJECT
