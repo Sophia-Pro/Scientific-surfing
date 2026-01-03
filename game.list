@@ -1,48 +1,43 @@
-# >>> 热门游戏对局加速列表 (不含平台下载流量) <<<
+# >>> 热门对局加速合集 (已整合 PUBG, CS2, 战地, GTA5) <<<
 
-# --- [PUBG: Battlegrounds] ---
-# 域名部分
+# --- [PUBG 核心对局与登录] ---
 DOMAIN-KEYWORD,pubg
 DOMAIN-SUFFIX,playbattlegrounds.com
 DOMAIN-SUFFIX,battlegrounds.pubg.com
 DOMAIN-SUFFIX,pubgmobile.com
-# 核心对局 IP 段 (覆盖亚服、美服、东南亚)
+# 包含你截图中的 20.41.x.x 所在的微软 Azure/PUBG 常用网段
+IP-CIDR,20.33.0.0/16,no-resolve
+IP-CIDR,20.41.0.0/16,no-resolve
 IP-CIDR,54.144.0.0/12,no-resolve
 IP-CIDR,13.112.0.0/14,no-resolve
 IP-CIDR,18.176.0.0/14,no-resolve
 IP-CIDR,35.190.0.0/17,no-resolve
 IP-CIDR,43.249.0.0/16,no-resolve
 
-# --- [CS2 / CS:GO] ---
-# 域名部分
+# --- [CS2 / CS:GO 官方服务器] ---
 DOMAIN-SUFFIX,perfectworld.com.cn
 DOMAIN-SUFFIX,csgo.com.cn
-# Valve 官方 SDR 路由网关 IP 段
 IP-CIDR,155.133.224.0/19,no-resolve
 IP-CIDR,162.254.192.0/21,no-resolve
 IP-CIDR,185.25.180.0/23,no-resolve
 IP-CIDR,205.185.194.0/24,no-resolve
 
 # --- [战地系列 / Battlefield / EA] ---
-# 域名部分
 DOMAIN-SUFFIX,ea.com
 DOMAIN-SUFFIX,dice.se
 DOMAIN-SUFFIX,battlefield.com
-# EA 战地对局服务器核心 IP 段
 IP-CIDR,159.153.0.0/16,no-resolve
 IP-CIDR,159.203.0.0/16,no-resolve
 IP-CIDR,185.179.200.0/22,no-resolve
 
 # --- [GTA5 / GTA Online / Rockstar] ---
-# 域名部分
 DOMAIN-SUFFIX,rockstargames.com
 DOMAIN-SUFFIX,rsg.sc
-# Rockstar P2P 协调服务器 IP 段
 IP-CIDR,192.81.240.0/21,no-resolve
 IP-CIDR,185.56.64.0/22,no-resolve
 IP-CIDR,104.255.104.0/21,no-resolve
 
-# --- [下载屏蔽 - 强烈建议加上以防流量偷跑] ---
+# --- [禁止下载流量/屏蔽项] ---
 # 屏蔽 Steam 更新下载
 DOMAIN-SUFFIX,steamcontent.com,REJECT
 DOMAIN-SUFFIX,steampowered.com.8686c.com,REJECT
